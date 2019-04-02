@@ -19,11 +19,13 @@ type helloWorldResponse struct {
 
 func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 	response := helloWorldResponse{Message: "HelloWorld", Author: "Leo", Date: "789sdf", ID: 23}
-	data, err := json.Marshal(response)
-	if err != nil {
-		panic("oops!")
-	}
-	fmt.Fprint(w, string(data))
+	encoder := json.NewEncoder(w)
+	encoder.Encode(&response)
+	// data, err := json.Marshal(response)
+	// if err != nil {
+	// 	panic("oops!")
+	// }
+	// fmt.Fprint(w, string(data))
 }
 
 func main() {
