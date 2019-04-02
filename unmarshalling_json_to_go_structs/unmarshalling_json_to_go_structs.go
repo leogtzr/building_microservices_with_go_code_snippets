@@ -2,8 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
-	"log"
 	"net/http"
 )
 
@@ -31,12 +29,13 @@ func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	port := 8080
-	http.HandleFunc("/hello", helloWorldHandler)
+	mux := http.NewServeMux()
+	fs := http.FileServer(http.Dir("images"))
+	mux.Handle("/", fs)
+	mux.HandleFunc("/hello", helloWorldHandler)
 
-	// Using nil since we are using a default router ...
-	err := http.ListenAndServe(fmt.Sprintf(":%v", port), nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// Temporary redirect
+	mux.Handle("/r", http.RedirectHandler("http://example.org", 307))
+
+	http.ListenAndServe(":8080", mux)
 }
