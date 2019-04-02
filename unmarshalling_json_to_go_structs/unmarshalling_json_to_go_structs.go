@@ -31,7 +31,7 @@ func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	mux := http.NewServeMux()
 	fs := http.FileServer(http.Dir("images"))
-	mux.Handle("/", fs)
+	mux.Handle("/images/", http.StripPrefix("/images/", fs))
 	mux.HandleFunc("/hello", helloWorldHandler)
 
 	// Temporary redirect
