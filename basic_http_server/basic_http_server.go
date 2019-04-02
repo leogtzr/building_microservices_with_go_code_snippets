@@ -14,6 +14,7 @@ func main() {
 	port := 8080
 	http.HandleFunc("/helloworld", helloHandler)
 
+	// Using nil since we are using a default router ...
 	err := http.ListenAndServe(fmt.Sprintf(":%v", port), nil)
 	if err != nil {
 		log.Fatal(err)
