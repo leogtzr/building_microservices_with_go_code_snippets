@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/leogtzr/chapter1/rpc/client"
-	"github.com/leogtzr/chapter1/rpc/server"
+	"github.com/leogtzr/building_microservices_with_go_code_snippets/rpc/client"
+	"github.com/leogtzr/building_microservices_with_go_code_snippets/rpc/server"
 )
 
 func main() {
