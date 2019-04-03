@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/leogtzr/building_microservices_with_go_code_snippets/rpc/client"
-	"github.com/leogtzr/building_microservices_with_go_code_snippets/rpc/server"
+	"github.com/leogtzr/building_microservices_with_go_code_snippets/rpc/serverhttp"
 )
 
 func main() {
