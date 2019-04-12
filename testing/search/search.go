@@ -7,14 +7,20 @@ import (
 
 // User ...
 type User struct {
-	name string `json:"user"`
+	Name string `json:"user"`
 }
 
 func someUsers() []User {
 	return []User{}
 }
 
-func getUsers(w http.ResponseWriter, r *http.Request) {
+// Store ...
+type Store interface {
+	Search(name string) []User
+}
+
+// GetUsers ...
+func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	users, err := json.Marshal(someUsers())
 	if err != nil {
@@ -25,8 +31,4 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(users)
-}
-
-func Search() {
-
 }

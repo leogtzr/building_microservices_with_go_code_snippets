@@ -11,7 +11,7 @@ import (
 // User Story - Users should be able to view a list of User entities
 func TestGetUsers(t *testing.T) {
 	r := mux.NewRouter()
-	r.HandleFunc("/users", getUsers).Methods("GET")
+	r.HandleFunc("/users", GetUsers).Methods("GET")
 	req, err := http.NewRequest("GET", "/users", nil)
 	if err != nil {
 		t.Error(err)
