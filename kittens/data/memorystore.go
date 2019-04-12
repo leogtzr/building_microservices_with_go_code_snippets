@@ -23,7 +23,7 @@ type MemoryStore struct {
 }
 
 //Search returns a slice of Kitten which have a name matching the name in the parameters
-func (m MemoryStore) Search(name string) []Kitten {
+func (m *MemoryStore) Search(name string) []Kitten {
 	var kittens []Kitten
 
 	for _, k := range data {

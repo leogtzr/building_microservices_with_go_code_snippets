@@ -10,7 +10,7 @@ import (
 
 func main() {
 
-	store := data.MemoryStore{}
+	store := &data.MemoryStore{}
 	handler := handlers.Search{DataStore: store}
 	err := http.ListenAndServe(":8080", &handler)
 	if err != nil {
