@@ -1,0 +1,3 @@
+To generate use the following command:
+protoc --go_out=plugins=micro:. kittens.proto
+
