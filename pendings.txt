@@ -1,0 +1,8 @@
+- Submit Errata for Kite/Setup
+
+22   // Add our handler method with the name "square" 
+23   k.HandleFunc("Hello", func(r *kite.Request) (interface{}, error) { 
+24     name, _ := r.Args.One().String() 
+25 
+26     return fmt.Sprintf("Hello %v", name), nil 
+27   }).DisableAuthentication() 
