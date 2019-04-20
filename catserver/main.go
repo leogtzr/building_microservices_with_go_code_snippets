@@ -11,8 +11,10 @@ import (
 	kittens "github.com/leogtzr/building_microservices_with_go_code_snippets/cats"
 )
 
+// Kittens ...
 type Kittens struct{}
 
+// Hello ...
 func (s *Kittens) Hello(ctx context.Context, req *kittens.Request, rsp *kittens.Response) error {
 	rsp.Msg = server.DefaultId + ": Hello " + req.Name
 
